@@ -95,7 +95,6 @@ const reportePeriodico = inngest.createFunction(
 );
 
 
-
 // API que Sirve funciones Inngest
 app.use("/api/inngest", serve({
   client: inngest,
@@ -176,17 +175,21 @@ async function realizarConsultaBD(req, res, tipoConsulta, coleccionBD) {
           result = await coleccion.findOne({_id: new ObjectId(id)});
         }
         
+        let montarMensaje;
+
+				if (coleccionBD === "usuarios") {
+					montarMensaje = `👁️ *Consulta de Usuarios*: Alguien ha solicitado la lista completa de usuarios.`;
+				} else { // grupos
+					montarMensaje = `👁️ *Consulta de Grupos*: Alguien ha solicitado la lista completa de grupos.`;
+				}
+
         await inngest.send({
           name: 'notificacion/consulta',
-          data: {resultado: result}
+          data: {
+            mensaje: montarMensaje,
+            resultado: result
+          }
         });
-
-        // Llamada a 
-				if (coleccionBD === "usuarios") {
-					await enviarMensajeTelegram(`👁️ *Consulta de Usuarios*: Alguien ha solicitado la lista completa de usuarios.`);
-				} else { // grupos
-					await enviarMensajeTelegram(`👁️ *Consulta de Grupos*: Alguien ha solicitado la lista completa de grupos.`);
-				}
 
         res.send(result);
 
@@ -216,7 +219,7 @@ async function realizarConsultaBD(req, res, tipoConsulta, coleccionBD) {
   }
 }
 
-
+// Función que se encarga de enviar mensajes al bot de Telegram
 async function enviarMensajeTelegram(mensaje) {
   if (!tokenTelegram || !idChatTelegram) {
     console.warn('⚠️  TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID no configurados');
