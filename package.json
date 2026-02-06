@@ -1,0 +1,24 @@
+{
+  "name": "inngestapimongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"nodemon index.js\" \"npx inngest-cli@latest dev\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.4",
+    "express": "^5.2.1",
+    "inngest": "^3.51.0",
+    "inngest-cli": "^1.16.1",
+    "mongodb": "^7.1.0",
+    "nodemon": "^3.1.11",
+    "telegraf": "^4.16.3"
+  }
+}
