@@ -1,10 +1,8 @@
 import 'dotenv/config';
 import express from 'express';
 import { serve } from "inngest/express";
-import { MongoClient, ServerApiVersion, ObjectId } from 'mongodb';
 import { Inngest } from 'inngest';
-
-// módulo necesario para accerder a variables de entorno
+import { MongoClient, ServerApiVersion, ObjectId } from 'mongodb';
 
 const app = express()
 const PUERTO = 3000;
@@ -55,7 +53,7 @@ const inngest = new Inngest({
   name: 'Centro Social'
 });
 
-// FUNCIÓN INNGEST
+// FUNCIÓN INNGEST NOTIFICACIÓN
 const notificacionBasica = inngest.createFunction(
   { id: 'notificacion-basica' },
   { event: 'notificacion/consulta' },
@@ -73,6 +71,7 @@ const notificacionBasica = inngest.createFunction(
   }
 );
 
+// FUNCIÓN INNGEST INFORME (CRON)
 const reportePeriodico = inngest.createFunction(
   { id: 'reporte-periodico' },
   { cron: '*/2 * * * *' },  // ENVÍO CADA 2 MINUTOS
@@ -171,7 +170,6 @@ async function realizarConsultaBD(req, res, tipoConsulta, coleccionBD) {
         if (JSON.stringify(id) === "{}") {
           result = await coleccion.find().toArray();
         } else {
-          //result = await coleccion.find({_id: new mongo.ObjectId(id)}).toArray();
           result = await coleccion.findOne({_id: new ObjectId(id)});
         }
         

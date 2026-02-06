@@ -53,6 +53,8 @@ El bot de Telegram actúa como nuestro centro de alertas, informando sobre:
 
 
 ## 📸 Capturas del proceso
+### Código API - Es recomendable utilizar variables de entorno
+![Es recomendable utilizar variables de entorno](/capturas/Screenshot_4.png)
 ### Cliente Inngest - Nuevas funciones implementadas
 ![Nuevas funciones implementadas](/capturas/Screenshot_1.png)
 ### Cliente Inngest - Sincronización entre API e Inngest
