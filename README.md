@@ -55,6 +55,17 @@ El bot de Telegram actúa como nuestro centro de alertas, informando sobre:
 ## 📸 Capturas del proceso
 ### Código API - Es recomendable utilizar variables de entorno
 ![Es recomendable utilizar variables de entorno](/capturas/Screenshot_4.png)
+### Código API - Definimos endpoint para el cliente de Inngest con las funciones creadas
+![Es recomendable utilizar variables de entorno](/capturas/Screenshot_9.png)
+### Código API - Función de notificación
+![Es recomendable utilizar variables de entorno](/capturas/Screenshot_5.png)
+### Código API - Función de informe periódico
+![Es recomendable utilizar variables de entorno](/capturas/Screenshot_6.png)
+### Código API - Función de envío de mensajes al bot Telegram
+![Es recomendable utilizar variables de entorno](/capturas/Screenshot_7.png)
+### Código API - Llamada a función notificacionBasica() en petición GET
+![Es recomendable utilizar variables de entorno](/capturas/Screenshot_8.png)
+## Una vez levantado el cliente Inngest entrar desde el navegador en http://localhost:8288
 ### Cliente Inngest - Nuevas funciones implementadas
 ![Nuevas funciones implementadas](/capturas/Screenshot_1.png)
 ### Cliente Inngest - Sincronización entre API e Inngest
